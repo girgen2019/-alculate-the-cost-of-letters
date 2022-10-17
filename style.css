@@ -1,0 +1,100 @@
+:root {
+    --primary-font: "Rubik", sans-serif;
+    --secondary-font: "Sorts Mill Goudy", serif;
+    --primary-color: #171e28;
+    --secondary-color: #222a35;
+    --icon-color: #7c7c7c;
+    --highlight-color: #d8c622;
+    --main-text-color: #f6f9f5;
+    --sub-text-color: #6e757d;
+    --heading-size: 2.5rem;
+    --text-size: 1rem;
+  }
+
+.main{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 3%;
+    background-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgb(122, 122, 122);
+    transition: 0.5s;
+  }
+
+  
+  .header{
+   
+    
+  }
+
+  .navigation{
+    position: relative;
+    margin-left: auto;
+    max-width: 80%;
+    display: flex;
+    padding-bottom: 5%;
+  }
+
+  .navigation-item{
+    color: var(--main-text-color);
+    width: 30%;
+  }
+
+  .main{
+    color: var(--main-text-color);
+    position: relative;
+    margin-left: auto;
+    padding-bottom: 5%;
+  }
+
+  .container-main{
+    position: relative;
+    margin-left: auto;
+    max-width: 80%;
+  }
+
+  .fire2{
+    display: none;
+  }
+
+  .form{
+    font-size: 1.5rem;
+  }
+
+  .form1{
+    font-size: 1rem;
+    width: 50%;
+  }
+  
+  .form2{
+    font-size: 1rem;
+    width: 50%;
+  }
+  
+  .button-main{
+    font-size: 1rem;
+  }
+
+  .footer{
+    display: flex;
+    justify-content:flex-end;
+    gap: 5%;
+    font-size: 0.8rem;
+    color: var(--sub-text-color);
+    padding-bottom: 2%;
+    padding-right: 2%;
+  }
