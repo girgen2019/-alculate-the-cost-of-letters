@@ -10,6 +10,9 @@
     --heading-size: 2.5rem;
     --text-size: 1rem;
   }
+  body{
+    background: url(https://oir.mobi/uploads/posts/2021-03/1616541264_55-p-veselii-fon-63.jpg);
+  }
 
 .main{
     margin: 0;
@@ -26,6 +29,7 @@ ul {
   }
 
   .container {
+    background: url();
     position: relative;
     max-width: 80%;
     margin: 0 auto;
