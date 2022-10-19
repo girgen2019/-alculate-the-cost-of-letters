@@ -27,7 +27,7 @@ ul {
 
   .container {
     position: relative;
-    width: 80%;
+    max-width: 80%;
     margin: 0 auto;
     padding-top: 3%;
     background-color: var(--primary-color);
@@ -36,11 +36,6 @@ ul {
   }
 
   
-  .header{
-   
-    
-  }
-
   .navigation{
     position: relative;
     margin-left: auto;
@@ -51,7 +46,7 @@ ul {
 
   .navigation-item{
     color: var(--main-text-color);
-    width: 30%;
+    max-width: 30%;
   }
 
   .main{
@@ -97,4 +92,91 @@ ul {
     color: var(--sub-text-color);
     padding-bottom: 2%;
     padding-right: 2%;
+  }
+
+  /* Adaptive */
+
+  @media screen and (max-width: 800px) {
+      h1{
+        width: 80%;
+        font-size: 1.5em;
+      }
+      .block-fire{
+      display: flex;
+      flex-direction: row;
+    }
+      #fireON{
+        margin-bottom: 5%;
+    }
+      .form2{
+        width: 80%;
+      }
+      #imgHeart{
+        width: 8%;
+      }
+      .button-main{
+        font-size: 1.5rem;
+      }
+      .dicription{
+        width: 80%;
+      }
+
+  }
+
+  @media screen and (max-width: 500px){
+    .form1{
+      width: 80%;
+      height: 15vh;
+      font-size: 1.1rem;
+    }
+    #fireON{
+      margin-bottom: 10%;
+  }
+    input[type=radio] {
+    border: 0px;
+    width: 10%;
+    height: 2em;
+}
+    #imgHeart{
+      margin-top: 5%;
+      width: 15%;
+    }
+    .form2{
+      height: 70vh;
+      font-size: 1.1rem;
+    }
+
+    .add-fire{
+      font-size: 1.4rem;
+    }
+  }
+
+  @media screen and (max-width: 360px){
+    h1{
+      width: 80%;
+      font-size: 1em;
+      margin-bottom: 10%;
+    }
+    #fireON{
+      margin-bottom: 10%;
+      align-self: center;
+      margin-bottom: 25%;
+  }
+    input[type=radio] {
+      border: 0px;
+      width: 10%;
+      height: 2em;
+      }
+      label[for=fire-btn]{
+        margin-left: 5%;
+        width: 70%;
+      }
+      .dicription{
+        width: 80%;
+        font-size: 0.8rem;
+      }
+      .footer{
+        font-size: 0.6rem;
+      }
+
   }
