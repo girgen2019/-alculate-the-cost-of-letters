@@ -90,8 +90,9 @@ function countWord(str = form1.value) {
 количество букв,шт. ---- ${arr.length - countHeart()}
 количество сердец, шт ---- ${countHeart()}
 доп.фонтанов, шт. ---- ${countField.value > 0 ? countField.value : 0}
+
 Стоимость без пиротехнического поджига, у.е.  ---- ${countCoastWordWithoutPirotecnics()}
-Соимость с пиротехническим поджигом, у.е. ---- ${countCoastWordWithPirotecnics()}`;
+Стоимость с пиротехническим поджигом, у.е. ---- ${countCoastWordWithPirotecnics()}`;
 }
 
 const handleClick = () => {
