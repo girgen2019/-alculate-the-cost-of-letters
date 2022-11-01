@@ -98,31 +98,35 @@ function countWord(str = form1.value) {
 const handleClick = () => {
   if (form1.value) {
     form2.value = countWord();
-  }else{
-    form2.placeholder = "Введите текст"
-  } 
- };
- 
+  } else {
+    form2.placeholder = "Введите текст";
+  }
+};
 
- form1.addEventListener("keydown", function (event) {
+form1.addEventListener("keydown", function (event) {
   if (event.keyCode === 13) {
     handleClick();
-    button.style.backgroundColor = '#be81f0'
-    setTimeout(function(){
-      button.style.backgroundColor = '#f4f5f6'
-    },100)
-  } 
-});
-button.addEventListener('click',handleClick)
-
-if(window.screen.width < 500){
-  form1.oninput = () => {
-    form2.value = countWord()
+    button.style.backgroundColor = "#be81f0";
+    setTimeout(function () {
+      button.style.backgroundColor = "#f4f5f6";
+    }, 100);
   }
-}else{
-  form2.preventDefault()
+});
+button.addEventListener("click", handleClick);
+
+if (window.screen.width < 500) {
+  form1.oninput = () => {
+    form2.value = countWord();
+  };
+} else if (window.screen.width > 500) {
+  form1.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13) {
+      handleClick();
+      button.style.backgroundColor = "#be81f0";
+      setTimeout(function () {
+        button.style.backgroundColor = "#f4f5f6";
+      }, 100);
+    }
+  });
+  button.addEventListener("click", handleClick);
 }
-
-
-
-
