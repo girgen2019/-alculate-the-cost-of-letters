@@ -1,3 +1,6 @@
+html{
+  overflow: hidden;
+}
 :root {
     --primary-font: "Rubik", sans-serif;
     --secondary-font: "Sorts Mill Goudy", serif;
@@ -11,7 +14,8 @@
     --text-size: 1rem;
   }
   body{
-    background: url(https://oir.mobi/uploads/posts/2021-03/1616541264_55-p-veselii-fon-63.jpg);
+    background: url(./assets/Bg.jpg);
+
   }
 
 .main{
@@ -29,14 +33,16 @@ ul {
   }
 
   .container {
-    background: url();
     position: relative;
     max-width: 80%;
     margin: 0 auto;
-    padding-top: 3%;
+    padding-top: 1%;
     background-color: var(--primary-color);
     box-shadow: 0 10px 20px rgb(122, 122, 122);
     transition: 0.5s;
+    margin-top: 2%;
+    border-radius: 15px;
+    opacity: 0.95;
   }
 
   
@@ -68,6 +74,7 @@ ul {
 
   .fire2{
     display: none;
+    border-radius: 5px;
   }
 
   .form{
@@ -76,21 +83,28 @@ ul {
 
   .form1{
     font-size: 1rem;
-    width: 50%;
+    width: 60%;
+    border-radius: 5px;
+    background-image: url(./assets/Bg\ input.png);
+    background-size:cover;
+
   }
   
   .form2{
     font-size: 1rem;
-    width: 50%;
-  }
+    width: 60%;
+    border-radius: 5px;
+    background-image: url(./assets/Bg\ input.png);
+    background-size:cover;
 
-  
-  
+  }
   .button-main{
+    border-radius: 10px;
+    box-shadow: 5px 1px 15px rgb(228, 201, 201) ;
     font-size: 1rem;
+    background-color: f4f5f6;
   }
-
-  .footer{
+ .footer{
     display: flex;
     justify-content:flex-end;
     gap: 5%;
@@ -103,6 +117,16 @@ ul {
   /* Adaptive */
 
   @media screen and (max-width: 800px) {
+    .container {
+      position: absolute;
+      max-width: 100%;
+      margin: 0 auto;
+      padding-top: 1%;
+      background-color: var(--primary-color);
+      box-shadow: 0 10px 20px rgb(122, 122, 122);
+      transition: 0.5s;
+      margin-top: 2%;
+    }
       h1{
         width: 80%;
         font-size: 1.5em;
@@ -110,12 +134,28 @@ ul {
       .block-fire{
       display: flex;
       flex-direction: row;
+      align-items: center;
+      gap: 20px;
     }
+    /* input[type=radio] {
+      width: 10rem;
+      height: 2rem;
+      /* padding-bottom: 1.5rem; */
+  
       #fireON{
-        margin-bottom: 5%;
+      zoom: 2; 
+    }
+    #fireOFF{
+       zoom: 2; 
+    }
+    .block-fire{
+      padding-top: 2%;
+    }
+    .form1{
+      width: 90%;
     }
       .form2{
-        width: 80%;
+        width: 90%;
       }
       #imgHeart{
         width: 8%;
@@ -126,8 +166,8 @@ ul {
       .dicription{
         width: 80%;
       }
-
-  }
+    }
+  
 
   @media screen and (max-width: 500px){
     .form1{
@@ -135,14 +175,18 @@ ul {
       height: 15vh;
       font-size: 1.1rem;
     }
-    #fireON{
-      margin-bottom: 10%;
-  }
-    input[type=radio] {
-    border: 0px;
-    width: 10%;
-    height: 2em;
-}
+    .block-fire{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+    label[for=fireON]{
+      font-size: 1.5rem;
+    }
+    label[for=fireOFF]{
+      font-size: 1.5rem;
+    }
     #imgHeart{
       margin-top: 5%;
       width: 15%;
@@ -163,11 +207,20 @@ ul {
       font-size: 1em;
       margin-bottom: 10%;
     }
-    #fireON{
-      margin-bottom: 10%;
-      align-self: center;
-      margin-bottom: 25%;
+    .container-main {
+      position: relative;
+      margin: 0 auto;
   }
+  .add-fire{
+    margin: 0;
+  }
+    #fireON{
+      align-self: center;
+  }
+  .block-fire {
+    padding: 0;
+    margin:0 ;
+}
     input[type=radio] {
       border: 0px;
       width: 10%;
@@ -176,6 +229,12 @@ ul {
       label[for=fire-btn]{
         margin-left: 5%;
         width: 70%;
+      }
+      label[for=fireON]{
+        font-size: 1.2rem;
+      }
+      label[for=fireOFF]{
+        font-size: 1.2rem;
       }
       .dicription{
         width: 80%;

@@ -99,6 +99,19 @@ const handleClick = () => {
   if (form1.value) {
     form2.value = countWord();
   } 
-};
 
-button.addEventListener("click", handleClick);
+ };
+ 
+
+ form1.addEventListener("keydown", function (event) {
+  if (event.keyCode === 13) {
+    handleClick();
+    button.style.backgroundColor = '#be81f0'
+    setTimeout(function(){
+      button.style.backgroundColor = 'white'
+    },100)
+  } 
+});
+button.addEventListener('click',handleClick)
+
+
