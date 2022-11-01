@@ -212,7 +212,9 @@ ul {
     }
     .container-main {
       position: relative;
-      margin: 0 auto;
+      right:10%;
+      transform: translateX(0,50%);
+      
   }
   .add-fire{
     margin: 0;
