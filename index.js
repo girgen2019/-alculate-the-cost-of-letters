@@ -98,8 +98,9 @@ function countWord(str = form1.value) {
 const handleClick = () => {
   if (form1.value) {
     form2.value = countWord();
+  }else{
+    form2.placeholder = "Введите текст"
   } 
-
  };
  
 
@@ -108,10 +109,20 @@ const handleClick = () => {
     handleClick();
     button.style.backgroundColor = '#be81f0'
     setTimeout(function(){
-      button.style.backgroundColor = 'white'
+      button.style.backgroundColor = '#f4f5f6'
     },100)
   } 
 });
 button.addEventListener('click',handleClick)
+
+if(window.screen.width < 500){
+  form1.oninput = () => {
+    form2.value = countWord()
+  }
+}else{
+  form2.preventDefault()
+}
+
+
 
 
