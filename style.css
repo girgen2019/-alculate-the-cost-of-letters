@@ -82,7 +82,7 @@ ul {
   }
 
   .form1{
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 70%;
     border-radius: 5px;
     background-image: url(./assets/Bg\ input.png);
@@ -91,7 +91,7 @@ ul {
   }
   
   .form2{
-    font-size: 1rem;
+    font-size: 1.2rem;
     width: 70%;
     border-radius: 5px;
     background-image: url(./assets/Bg\ input.png);
@@ -101,8 +101,9 @@ ul {
   .button-main{
     border-radius: 10px;
     box-shadow: 5px 1px 15px rgb(228, 201, 201) ;
-    font-size: 1rem;
+    font-size: 1.2rem;
     background-color: #f4f5f6;
+    padding: 10px 5px;
   }
  .footer{
     display: flex;
