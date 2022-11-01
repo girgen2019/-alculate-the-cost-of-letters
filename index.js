@@ -1,4 +1,4 @@
-const form1 = document.getElementById("form1");
+const form1 = document.getElementById("form1").focus();
 const form2 = document.getElementById("form2");
 const button = document.getElementById("button");
 const radioBtnOn = document.getElementById("fireON");
@@ -116,7 +116,9 @@ button.addEventListener("click", handleClick);
 
 if (window.screen.width < 500) {
   form1.oninput = () => {
-    form2.value = countWord();
+    form2.value = countWord()
+    
+    
   };
 } else if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
