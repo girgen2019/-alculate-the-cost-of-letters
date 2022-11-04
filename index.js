@@ -2,6 +2,8 @@ const form1 = document.getElementById("form1");
 const form2 = document.getElementById("form2");
 const submitForm = document.querySelector(".form");
 const button = document.getElementById("button");
+const loc = document.getElementById("robinson");
+const otherLoc = document.getElementById("other-location")
 const radioBtnOn = document.getElementById("fireON");
 const radioBtnOff = document.getElementById("fireOFF");
 const countField = document.getElementById("fire2");
@@ -56,24 +58,34 @@ radioBtnOn.addEventListener("click", isCheckRadioBtn);
 radioBtnOff.addEventListener("click", isCheckRadioBtn);
 
 function countWord(str = form1.value) {
+  function place(){
+    let sumLoc = 0
+    if(loc.checked){
+      sumLoc = 5
+    }else if(otherLoc.checked){
+      sumLoc = 0
+    }
+    return sumLoc
+  }
   let countCoastWordWithoutPirotecnics = (
     item = arr.length - countHeart(),
     count = countField.value
   ) => {
     let result = 0;
     let countHeartNumbers = countHeart();
-    if (item > 0 && !str.includes(heart)) {
+    
+    if (item > 0 && !str.includes(heart) && loc.checked) {
       result = Math.ceil(
         (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-      );
+      ) + place();
     }
     if (item > 0 && str.includes(heart)) {
       result = Math.ceil(
         (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-      );
+      ) + place();
     }
     if (!item && str.includes(heart)) {
-      result = Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7);
+      result = Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) + place();
     }
     if (!form1.focus()) {
       form1.blur();
@@ -90,14 +102,14 @@ function countWord(str = form1.value) {
     if (item > 0) {
       result =
         Math.ceil(
-          (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
+          ((item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
         ) +
-        (item + countHeart()) * 7;
+        (item + countHeart()) * 7) + place();
     }
     if (!item && str.includes(heart)) {
       result =
-        Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) +
-        countHeart() * 7;
+        Math.ceil(((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) +
+        countHeart() * 7) + place();
     }
     return result < 50 ? 50 : result;
   };
@@ -110,6 +122,7 @@ function countWord(str = form1.value) {
 количество букв,шт. ---- ${arr.length - countHeart()}
 количество сердец, шт ---- ${countHeart()}
 доп.фонтанов, шт. ---- ${countField.value > 0 ? countField.value : 0}
+робинсон, уе. ---- ${place()}
 
 Стоимость без пиротехнического поджига, у.е.  ---- ${countCoastWordWithoutPirotecnics()}
 Стоимость с пиротехническим поджигом, у.е. ---- ${countCoastWordWithPirotecnics()}`;

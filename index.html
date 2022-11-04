@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,43 +23,45 @@
             <main class="main">
                 <div class="container-main">
                     <h1>Калькулятор расчета стоимости надписи</h1>
-                    <form class="form">
-                        <textarea class="form1" id="form1" rows="2" cols="50" name="textfield" type="text"
-                            placeholder="Введите текст" autofocus></textarea>
-                        <div>
-                            <img id="imgHeart"
-                                src="./assets/streamlinehq-interface-favorite-heart-interface-essential-24.png"
-                                alt="img heart">
+                    <div class="block-location">
+                        <label for="robinson"><input type="radio" id="robinson" name="loc" checked>Робинсон клуб</label>
+                        <label for="other-location"><input type="radio" id="other-location" name="loc">Другая
+                            локация</label>
+                        <form class="form">
                         </div>
-                        <p class="add-fire">
-                            <span class="block-fire"><input type="radio" id="fireON" name="notaswitch-one">
-                                <label for="fireON">Доп. фонтаны On</label>
-                            </span>
+                    <textarea class="form1" id="form1" rows="2" cols="50" name="textfield" type="text"
+                        placeholder="Введите текст" autofocus></textarea>
+                    <div>
+                        <img id="imgHeart"
+                            src="./assets/streamlinehq-interface-favorite-heart-interface-essential-24.png"
+                            alt="img heart">
+                    </div>
+                    <p class="add-fire">
+                        <span class="block-fire"><input type="radio" id="fireON" name="notaswitch-one">
+                            <label for="fireON">Доп. фонтаны On</label>
+                        </span>
 
-                            <span class="block-fire">
-                                <input type="radio" id="fireOFF" name="notaswitch-one" checked>
-                                <label for="fireOFF">Доп. фонтаны Off</label>
-                            </span>
-                        </p>
-                        <p>
-                            <input class="fire2" id="fire2" type="number" name="count"  min="0" max="100"
-                            placeholder="0" >
-                        </p>
-                        <textarea class="form2" id="form2" name="w3review" rows="10" cols="100" text.style="red"
-                            placeholder="Детализация рассчета" ></textarea>
-                            
-                        <p>
-                            <button class="button-main" id="button" type="button">Рассчитать</button>
-                        </p>
+                        <span class="block-fire">
+                            <input type="radio" id="fireOFF" name="notaswitch-one" checked value="1">
+                            <label for="fireOFF">Доп. фонтаны Off</label>
+                        </span>
+
+                    </p>
+                    <p class="input-count">
+                        <input class="fire2" id="fire2" type="number" name="count" min="0" max="100" placeholder="0">
+                    </p>
+                    <textarea class="form2" id="form2" name="w3review" rows="10" cols="100" text.style="red"
+                        placeholder="Детализация рассчета"></textarea>
+
+                    <p>
+                        <button class="button-main" id="button" type="button">Рассчитать</button>
+                    </p>
                     </form>
-                    <datalist id="word">
-                        <option>Выходи за меня</option>
-                        <option>Я сердце тебя</option>
-                    </datalist>
-
-                    <p class="dicription">*Для расчета надписи с использованием сердца - нажмите на иконку сердца столько раз, сколько
+                    <p class="dicription">*Для расчета надписи с использованием сердца - нажмите на иконку сердца
+                        столько раз, сколько
                         сердец требуеться.</p>
-                    <p class="dicription">**Нажмите на кнопку рассчитать и введенный текст надписи будет рассчитан согласно формуле
+                    <p class="dicription">**Нажмите на кнопку рассчитать и введенный текст надписи будет рассчитан
+                        согласно формуле
                         расчета.</p>
                 </div>
             </main>
