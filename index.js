@@ -138,7 +138,11 @@ if (window.screen.width < 500) {
   form1.oninput = () => {
     form2.value = countWord();
     form1.focus()
-  }}
+  }
+countField.oninput = () => {
+  form2.value = countWord()
+}
+}
    else if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
