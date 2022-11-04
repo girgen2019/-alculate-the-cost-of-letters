@@ -27,7 +27,7 @@ function countHeart() {
 buttonHeart.addEventListener("click", addHeart);
 buttonHeart.addEventListener("click", countHeart);
 buttonHeart.onclick = function () {
-  if (buttonHeart.onclick || form1.value) {
+  if (buttonHeart.onclick || form1.value != 0) {
     form1.focus();
   }
 };
@@ -134,15 +134,11 @@ form1.addEventListener("keydown", function (event) {
 });
 button.addEventListener("click", handleClick);
 
-// if (window.screen.width < 500) {
-//   form1.oninput = () => {
-//     form2.value = countWord();
-//   };
-//   if (form1.blur()) {
-//     form1.focus();
-//   }
-
- if (window.screen.width > 500) {
+if (window.screen.width < 500) {
+  form1.focus().oninput = () => {
+    form2.value = countWord();
+  }}
+   else if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
       handleClick();
