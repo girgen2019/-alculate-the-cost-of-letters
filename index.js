@@ -6,7 +6,7 @@ const radioBtnOn = document.getElementById("fireON");
 const radioBtnOff = document.getElementById("fireOFF");
 const countField = document.getElementById("fire2");
 const buttonHeart = document.getElementById("imgHeart");
-const overflow = document.documentElement
+const overflow = document.documentElement;
 const heart = String.fromCharCode(10084);
 
 function addHeart() {
@@ -26,31 +26,31 @@ function countHeart() {
 
 buttonHeart.addEventListener("click", addHeart);
 buttonHeart.addEventListener("click", countHeart);
-buttonHeart.onclick = function(){
-if(buttonHeart.onclick){
-  form1.focus()
-}
-}
+buttonHeart.onclick = function () {
+  if (buttonHeart.onclick) {
+    form1.focus();
+  }
+};
 
 function isCheckRadioBtn() {
   if (radioBtnOn.checked) {
     countField.style.display = "block";
-    overflow.style.overflow = 'visible';
-    countField.focus()
+    overflow.style.overflow = "visible";
+    countField.focus();
   }
   if (radioBtnOff.checked) {
     countField.style.display = "none";
-    overflow.style.overflow = 'hidden';
+    overflow.style.overflow = "hidden";
     countField.value = 0;
   }
 }
 
-countField.addEventListener('keydown', function(event){
-  if(event.code == "Enter" || event.code == "NumpadEnter"){
-    event.preventDefault()
-      handleClick()
-   }
-})
+countField.addEventListener("keydown", function (event) {
+  if (event.code == "Enter" || event.code == "NumpadEnter") {
+    event.preventDefault();
+    handleClick();
+  }
+});
 
 radioBtnOn.addEventListener("click", isCheckRadioBtn);
 radioBtnOff.addEventListener("click", isCheckRadioBtn);
@@ -75,8 +75,8 @@ function countWord(str = form1.value) {
     if (!item && str.includes(heart)) {
       result = Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7);
     }
-    if(!form1.focus()){
-      form1.blur()
+    if (!form1.focus()) {
+      form1.blur();
     }
     return result < 50 ? 50 : result;
   };
@@ -137,8 +137,8 @@ button.addEventListener("click", handleClick);
 if (window.screen.width < 500) {
   form1.oninput = () => {
     form2.value = countWord();
-    form1.focus()
   };
+  form1.focus();
 } else if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
@@ -151,4 +151,3 @@ if (window.screen.width < 500) {
   });
   button.addEventListener("click", handleClick);
 }
-
