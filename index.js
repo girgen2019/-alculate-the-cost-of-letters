@@ -135,8 +135,9 @@ form1.addEventListener("keydown", function (event) {
 button.addEventListener("click", handleClick);
 
 if (window.screen.width < 500) {
-  form1.focus().oninput = () => {
+  form1.oninput = () => {
     form2.value = countWord();
+    form1.focus()
   }}
    else if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
