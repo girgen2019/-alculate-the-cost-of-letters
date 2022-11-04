@@ -141,6 +141,7 @@ if (window.screen.width < 500) {
   }
 countField.oninput = () => {
   form2.value = countWord()
+  countField.focus()
 }
 }
    else if (window.screen.width > 500) {
