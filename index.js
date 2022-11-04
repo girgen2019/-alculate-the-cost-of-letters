@@ -27,7 +27,7 @@ function countHeart() {
 buttonHeart.addEventListener("click", addHeart);
 buttonHeart.addEventListener("click", countHeart);
 buttonHeart.onclick = function () {
-  if (buttonHeart.onclick) {
+  if (buttonHeart.onclick || form1.value) {
     form1.focus();
   }
 };
