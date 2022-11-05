@@ -3,7 +3,7 @@ const form2 = document.getElementById("form2");
 const submitForm = document.querySelector(".form");
 const button = document.getElementById("button");
 const loc = document.getElementById("robinson");
-const otherLoc = document.getElementById("other-location")
+const otherLoc = document.getElementById("other-location");
 const radioBtnOn = document.getElementById("fireON");
 const radioBtnOff = document.getElementById("fireOFF");
 const countField = document.getElementById("fire2");
@@ -58,14 +58,14 @@ radioBtnOn.addEventListener("click", isCheckRadioBtn);
 radioBtnOff.addEventListener("click", isCheckRadioBtn);
 
 function countWord(str = form1.value) {
-  function place(){
-    let sumLoc = 0
-    if(loc.checked){
-      sumLoc = 5
-    }else if(otherLoc.checked){
-      sumLoc = 0
+  function place() {
+    let sumLoc = 0;
+    if (loc.checked) {
+      sumLoc = 5;
+    } else if (otherLoc.checked) {
+      sumLoc = 0;
     }
-    return sumLoc
+    return sumLoc;
   }
   let countCoastWordWithoutPirotecnics = (
     item = arr.length - countHeart(),
@@ -73,19 +73,22 @@ function countWord(str = form1.value) {
   ) => {
     let result = 0;
     let countHeartNumbers = countHeart();
-    
+
     if (item > 0 && !str.includes(heart) && loc.checked) {
-      result = Math.ceil(
-        (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-      ) + place();
+      result =
+        Math.ceil(
+          (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
+        ) + place();
     }
     if (item > 0 && str.includes(heart)) {
-      result = Math.ceil(
-        (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-      ) + place();
+      result =
+        Math.ceil(
+          (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
+        ) + place();
     }
     if (!item && str.includes(heart)) {
-      result = Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) + place();
+      result =
+        Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) + place();
     }
     if (!form1.focus()) {
       form1.blur();
@@ -102,14 +105,17 @@ function countWord(str = form1.value) {
     if (item > 0) {
       result =
         Math.ceil(
-          ((item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-        ) +
-        (item + countHeart()) * 7) + place();
+          (item * 15 + countHeartNumbers * 25 - 30) / 2 +
+            30 +
+            count * 7 +
+            (item + countHeart()) * 7
+        ) + place();
     }
     if (!item && str.includes(heart)) {
       result =
-        Math.ceil(((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) +
-        countHeart() * 7) + place();
+        Math.ceil(
+          (countHeartNumbers * 25 - 30) / 2 + 30 + count * 7 + countHeart() * 7
+        ) + place();
     }
     return result < 50 ? 50 : result;
   };
@@ -150,14 +156,13 @@ button.addEventListener("click", handleClick);
 if (window.screen.width < 500) {
   form1.oninput = () => {
     form2.value = countWord();
-    form1.focus()
-  }
-countField.oninput = () => {
-  form2.value = countWord()
-  countField.focus()
-}
-}
-   else if (window.screen.width > 500) {
+    form1.focus();
+  };
+  countField.oninput = () => {
+    form2.value = countWord();
+    countField.focus();
+  };
+} else if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
       handleClick();
@@ -169,3 +174,31 @@ countField.oninput = () => {
   });
   button.addEventListener("click", handleClick);
 }
+
+const renderContent = (res) => {
+  let { Date } = res;
+  let currentDate = String(Date)
+    .split("T")
+    .slice(0, 1)
+    .map((item) => item.split("-").reverse().join("."));
+  let content = document.getElementById("data").innerHTML;
+  Object.keys(res).map((el) => {
+    if (el.includes("Cur_OfficialRate")) {
+      content += `<td>
+    <tr>Курс USD по НБРБ  - ${res.Cur_OfficialRate} BYN</tr>
+    <tr>на дату ${currentDate}</tr>
+   </td>`;
+    }
+  });
+  document.getElementById("data").innerHTML = content;
+};
+
+async function getCurrency() {
+  let promCurrency = await fetch("https://www.nbrb.by/api/exrates/rates/431");
+  let data = await promCurrency.json();
+  return data;
+}
+
+getCurrency().then(renderContent);
+
+const usd = document.getElementById("data");
