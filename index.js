@@ -57,8 +57,8 @@ countField.addEventListener("keydown", function (event) {
 radioBtnOn.addEventListener("click", isCheckRadioBtn);
 radioBtnOff.addEventListener("click", isCheckRadioBtn);
 
-function countWord(str = form1.value) {
-  function place() {
+const countWord = function(str = form1.value) {
+ const place = function() {
     let sumLoc = 0;
     if (loc.checked) {
       sumLoc = 5;
@@ -78,17 +78,23 @@ function countWord(str = form1.value) {
       result =
         Math.ceil(
           (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-        ) + place();
+        ) + (place());
+    }
+    if (item > 0 && !str.includes(heart) && otherLoc.checked) {
+      result =
+        Math.ceil(
+          (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
+        ) + (place());
     }
     if (item > 0 && str.includes(heart)) {
       result =
         Math.ceil(
           (item * 15 + countHeartNumbers * 25 - 30) / 2 + 30 + count * 7
-        ) + place();
+        ) + (place());
     }
     if (!item && str.includes(heart)) {
       result =
-        Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) + place();
+        Math.ceil((countHeartNumbers * 25 - 30) / 2 + 30 + count * 7) + (place());
     }
     if (!form1.focus()) {
       form1.blur();
@@ -117,6 +123,7 @@ function countWord(str = form1.value) {
           (countHeartNumbers * 25 - 30) / 2 + 30 + count * 7 + countHeart() * 7
         ) + place();
     }
+    
     return result < 50 ? 50 : result;
   };
 
@@ -125,12 +132,12 @@ function countWord(str = form1.value) {
 
   return `символы ---- ${arr}
 длинна надписи, шт. ---- ${arr.length}
-количество букв,шт. ---- ${arr.length - countHeart()}
-количество сердец, шт ---- ${countHeart()}
+  - количество букв,шт. ---- ${arr.length - countHeart()}
+  - количество сердец, шт ---- ${countHeart()}
 доп.фонтанов, шт. ---- ${countField.value > 0 ? countField.value : 0}
 робинсон, уе. ---- ${place()}
 
-Стоимость без пиротехнического поджига, у.е.  ---- ${countCoastWordWithoutPirotecnics()}
+Стоимость без пиротехнического поджига, у.е.  ---- ${countCoastWordWithoutPirotecnics()} 
 Стоимость с пиротехническим поджигом, у.е. ---- ${countCoastWordWithPirotecnics()}`;
 }
 
@@ -184,10 +191,10 @@ const renderContent = (res) => {
   let content = document.getElementById("data").innerHTML;
   Object.keys(res).map((el) => {
     if (el.includes("Cur_OfficialRate")) {
-      content += `<td>
+    content += `<td>
     <tr>Курс USD по НБРБ  - ${res.Cur_OfficialRate} BYN</tr>
     <tr>на дату ${currentDate}</tr>
-   </td>`;
+    </td>`;
     }
   });
   document.getElementById("data").innerHTML = content;
@@ -202,3 +209,4 @@ async function getCurrency() {
 getCurrency().then(renderContent);
 
 const usd = document.getElementById("data");
+
