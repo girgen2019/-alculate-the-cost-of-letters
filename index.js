@@ -67,12 +67,15 @@ const countWord = function(str = form1.value) {
     }
     return sumLoc;
   }
+
   let countCoastWordWithoutPirotecnics = (
     item = arr.length - countHeart(),
     count = countField.value
   ) => {
     let result = 0;
     let countHeartNumbers = countHeart();
+
+  
 
     if (item > 0 && !str.includes(heart) && loc.checked) {
       result =
@@ -127,13 +130,13 @@ const countWord = function(str = form1.value) {
     return result < 50 ? 50 : result;
   };
 
-  let arr = str.toLowerCase().split("");
-  arr.forEach((element, i) => (element === " " ? arr.splice(i, 1) : element));
+  let arr = str.toLowerCase().split("").filter(element => element !== " ");
+  console.log(arr)
 
   return `символы ---- ${arr}
 длинна надписи, шт. ---- ${arr.length}
-  - количество букв,шт. ---- ${arr.length - countHeart()}
-  - количество сердец, шт ---- ${countHeart()}
+ -количество букв,шт. ---- ${arr.length - countHeart()}
+ -количество сердец, шт ---- ${countHeart()}
 доп.фонтанов, шт. ---- ${countField.value > 0 ? countField.value : 0}
 робинсон, уе. ---- ${place()}
 

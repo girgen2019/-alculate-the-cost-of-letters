@@ -1,8 +1,13 @@
+@font-face {
+  font-family: myMontserrat;
+  src: url(./assets/Montserrat/static/Montserrat-Regular.ttf);
+}
+
 html{
   overflow: hidden;
 }
 :root {
-    --primary-font: "Rubik", sans-serif;
+    --primary-font: "Montserrat", sans-serif;
     --secondary-font: "Sorts Mill Goudy", serif;
     --primary-color: #171e28;
     --secondary-color: #222a35;
