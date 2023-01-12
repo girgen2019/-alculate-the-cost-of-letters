@@ -131,22 +131,42 @@ const countWord = function(str = form1.value) {
   };
 
   let arr = str.toLowerCase().split("").filter(element => element !== " ");
-  console.log(arr)
 
-  return `символы ---- ${arr}
-длинна надписи, шт. ---- ${arr.length}
- -количество букв,шт. ---- ${arr.length - countHeart()}
- -количество сердец, шт ---- ${countHeart()}
-доп.фонтанов, шт. ---- ${countField.value > 0 ? countField.value : 0}
-робинсон, уе. ---- ${place()}
+  const renderContent = (res = res.Cur_OfficialRate) => {
 
-Стоимость без пиротехнического поджига, у.е.  ---- ${countCoastWordWithoutPirotecnics()} 
-Стоимость с пиротехническим поджигом, у.е. ---- ${countCoastWordWithPirotecnics()}`;
+  Object.keys(res).forEach(el => {
+    if (el === "Cur_OfficialRate") {
+      let result = `символы ---- ${arr}
+      длинна надписи, шт. ---- ${arr.length}
+       -количество букв,шт. ---- ${arr.length - countHeart()}
+       -количество сердец, шт ---- ${countHeart()}
+      доп.фонтанов, шт. ---- ${countField.value > 0 ? countField.value : 0}
+      робинсон, уе. ---- ${place()}
+      =======================
+      Стоимость без пиротехнического поджига, у.е.  ---- ${countCoastWordWithoutPirotecnics()} 
+      Стоимость с пиротехническим поджигом, у.е. ---- ${countCoastWordWithPirotecnics()}
+      =======================
+      Стоимость без пиротехнического поджига, руб ---- ${Math.ceil(countCoastWordWithoutPirotecnics() * res.Cur_OfficialRate)}
+      Стоимость с пиротехническим поджигом, руб ---- ${Math.ceil(countCoastWordWithPirotecnics() * res.Cur_OfficialRate)}
+      `;
+      form2.value = result
+     }
+  });
+};
+
+async function getCurrency() {
+  let promCurrency = await fetch("https://www.nbrb.by/api/exrates/rates/431");
+  let data = await promCurrency.json();
+  return data;
+}
+getCurrency().then(renderContent);
+return 
 }
 
 const handleClick = () => {
   if (form1.value) {
     form2.value = countWord();
+    
   } else {
     form2.placeholder = "Введите текст";
   }
@@ -186,7 +206,7 @@ if (window.screen.width < 500) {
 }
 
 const renderContent = (res) => {
-  let { Date } = res;
+    let { Date } = res;
   let currentDate = String(Date)
     .split("T")
     .slice(0, 1)
@@ -194,6 +214,9 @@ const renderContent = (res) => {
   let content = document.getElementById("data").innerHTML;
   Object.keys(res).map((el) => {
     if (el.includes("Cur_OfficialRate")) {
+      button.addEventListener("click", handleClick);
+  let resalt = res.Cur_OfficialRate;
+  console.log(resalt)
     content += `<td>
     <tr>Курс USD по НБРБ  - ${res.Cur_OfficialRate} BYN</tr>
     <tr>на дату ${currentDate}</tr>
@@ -211,5 +234,4 @@ async function getCurrency() {
 
 getCurrency().then(renderContent);
 
-const usd = document.getElementById("data");
 
