@@ -183,16 +183,21 @@ form1.addEventListener("keydown", function (event) {
 });
 button.addEventListener("click", handleClick);
 
-if (window.screen.width < 500) {
-  form1.oninput = () => {
-    form2.value = countWord();
-    form1.focus();
-  };
-  countField.oninput = () => {
-    form2.value = countWord();
-    countField.focus();
-  };
-} else if (window.screen.width > 500) {
+// if (window.screen.width < 500) {
+//   form1.oninput = () => {
+//     form1.focus();
+//     if(form1.textContent.length > 5){
+//       form2.value = countWord();
+//     }
+//     console.log("click")
+    
+// };
+  // countField.oninput = () => {
+  //   form2.value = countWord();
+  //   countField.focus();
+  // };
+// } else 
+if (window.screen.width > 500) {
   form1.addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
       handleClick();
