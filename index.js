@@ -130,7 +130,8 @@ const countWord = function(str = form1.value) {
     return result < 50 ? 50 : result;
   };
 
-  let arr = str.toLowerCase().split("").filter(element => element !== " ");
+  let arr = str.toLowerCase().split("").filter(element => element !== " " && element !== "\n");
+  console.log(arr)
 
   const renderContent = (res = res.Cur_OfficialRate) => {
 
